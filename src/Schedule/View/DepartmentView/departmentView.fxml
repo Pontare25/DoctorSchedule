@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Schedule.View.DepartmentView.departmentViewController">
+   <center>
+      <SplitPane dividerPositions="0.5735785953177257" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="TableView_department" layoutX="95.0" layoutY="143.0" onKeyPressed="#loadHeadAndSectionsKey" onMouseClicked="#loadHeadAndSectionsMouse" prefHeight="398.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="col_dep_id" prefWidth="75.0" text="Department ID" />
+                      <TableColumn fx:id="col_dep_name" prefWidth="75.0" text="Department Name" />
+                        <TableColumn fx:id="col_head_of_department" prefWidth="75.0" text="Head of Department" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" layoutX="76.0" layoutY="80.0" prefHeight="398.0" prefWidth="251.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Head of Department">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <GridPane hgap="5.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="First Name" />
+                              <Label layoutX="10.0" layoutY="17.0" text="Last Name" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="47.0" text="Title" GridPane.rowIndex="2" />
+                              <TextField fx:id="textFieldFName" editable="false" GridPane.columnIndex="1" />
+                              <TextField fx:id="textFieldLastName" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="textFieldTitle" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </GridPane>
+                        <Separator prefWidth="200.0" />
+                        <Label text="Sections">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tableView_sections" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="col_section" prefWidth="75.0" text="Section" />
+                            <TableColumn fx:id="col_head_of_section" prefWidth="75.0" text="Head of section" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#goToSectionView" text="Go to section View" />
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#openAddDepartmentWindow" prefWidth="150.0" text="Add Department" />
+            <Button mnemonicParsing="false" onAction="#deleteSelectedDepartment" prefWidth="150.0" text="Delete Department" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
