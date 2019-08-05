@@ -112,9 +112,8 @@ public class EditDoctorCompetencyController {
         }
     }
 
+    //Loads only the competencies that are not already added to the doctor to prevent duplicates (See for-loop below)
     private void loadAvailableCompetencies() {
-
-
         String SQLquery = "SELECT * FROM competencies";
 
         try {
@@ -146,9 +145,9 @@ public class EditDoctorCompetencyController {
         Comps_availableTableView.refresh();
     }
 
+    //Loads all the competencies that are already registered to the doctor
     private void loadRegisteredCompetencies() {
         try {
-
             String SQLquery="SELECT doctor_competencies.doctor_id, doctor_competencies.comp_id, competencies.comp_id, competencies.comp_name, competencies.comp_desc FROM doctor_competencies " +
                     "INNER JOIN competencies ON competencies.comp_id=doctor_competencies.comp_id "+
                     "WHERE doctor_competencies.doctor_id="+Integer.toString(personId);
@@ -172,9 +171,11 @@ public class EditDoctorCompetencyController {
         registered_table.refresh();
     }
 
+    //Checks if there has been any change to the competencies registered to the doctor in question and in that case updates the DB accordingly
     @FXML
     void Commit_changes(ActionEvent event) {
 
+        //Checks if there are any competencies to be deleted
         if(!toBeDeletedCompetencies.isEmpty()){
             String sql = "DELETE FROM doctor_competencies WHERE doctor_id = ? AND comp_id=?";
 
@@ -194,6 +195,7 @@ public class EditDoctorCompetencyController {
 
 
         }
+        //Checks if there are any competencies to be added
         if(!toBeAddedCompetencies.isEmpty()){
             for(int i =0; i < toBeAddedCompetencies.size(); i++){
                     String sql = "INSERT INTO doctor_competencies(doctor_id, comp_id) VALUES(?,?)";
@@ -211,6 +213,7 @@ public class EditDoctorCompetencyController {
     loadData();
     }
 
+    //adds competencies to a temporary list which after being commited is updated in the DB (see Commit_changes)
     @FXML
     void available_add_btn_pressed(ActionEvent event) {
         if (!Comps_availableTableView.getSelectionModel().isEmpty()) {
@@ -294,6 +297,8 @@ public class EditDoctorCompetencyController {
         refreshAllTables();
     }
 
+    //Since only the competencies that are not registered are available this means that the user has to refresh the view to get access to the deleted competencies again
+    //This should be refined
     @FXML
     void removeAllRegistered(ActionEvent event) {
         toBeDeletedCompetencies.addAll(registeredCompetencies);

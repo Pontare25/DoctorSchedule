@@ -83,32 +83,23 @@ public class doctorViewController {
         doctor_onCall_col.setCellValueFactory(new PropertyValueFactory<Doctor, Boolean>("onCall"));
         doctor_mainSection_col.setCellValueFactory(new PropertyValueFactory<Doctor, String>("mainSection"));
 
-
-
         //Competency Tableview
         comp_id_col.setCellValueFactory(new PropertyValueFactory<Competency, Integer>("compID"));
         comp_title_col.setCellValueFactory(new PropertyValueFactory<Competency, String>("compTitle"));
-
-
     }
 
+    //Loads all the doctors ftom the DB
     private void loadData() {
         doctors.clear();
-        //Doctor(int id, String fname, String lname, String title, String mainSection, boolean available, boolean onCall)
-        //doctors.add(new Doctor(2, "Pontus", "Nellgård", "Head", "development", true, false));
-
-
         String SQLquery="SELECT doctors.doctor_id, doctors.fname, doctors.lname, doctors.title, doctors.oncall, doctors.available, doctors.mainsection, titles.title_id, titles.title_name, sections.section_id, sections.section_name FROM doctors " +
                 "INNER JOIN sections ON sections.section_id=doctors.mainsection " +
                 "INNER JOIN titles ON titles.title_id=doctors.title";
 
-        //String SQLquery="SELECT * FROM doctors";
         try (Connection conn = dbHandler.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(SQLquery)){
             while(rs.next()){
                 try {
-                    //System.out.println(rs.getString("fname"));
                     doctors.add(new Doctor(rs.getInt("doctor_id"), rs.getString("fname"), rs.getString("lname"), rs.getString("title_name"), rs.getString("section_name"), rs.getBoolean("available"), rs.getBoolean("oncall")));
                 }catch (Exception ex){
                     ex.printStackTrace();
@@ -118,13 +109,12 @@ public class doctorViewController {
             System.out.println(e.getMessage());
         }
 
-
         DoctorTableView.setItems(doctors);
         DoctorTableView.requestFocus();
 
-
     }
 
+    //Loads the competencies tied to the specific selected doctor
     public void loadCompKey(KeyEvent keyEvent) {
         if (!DoctorTableView.getSelectionModel().isEmpty()){
             loadCompData();
@@ -149,7 +139,6 @@ public class doctorViewController {
                  ResultSet rs    = stmt.executeQuery(SQLquery)){
                 while(rs.next()){
                     try {
-                       // System.out.println(rs.getInt("comp_id") + " " + rs.getString("comp_name") + "\t" + rs.getString("comp_desc"));
                         competencies.add(new Competency(rs.getInt("comp_id"), rs.getString("comp_name"), rs.getString("comp_desc")));
                     }catch (Exception ex){
                         ex.printStackTrace();
@@ -245,6 +234,7 @@ public class doctorViewController {
     void openAddComp(ActionEvent event) throws IOException{
         if(!DoctorTableView.getSelectionModel().isEmpty()) {
             try {
+                //Passing the id of the doctor to the next view the information of where to add the competencies and what competencies are already added
                 main.showAddCompetencyWindow(DoctorTableView.getSelectionModel().getSelectedItem().getId());
 
             }catch (Exception e){
@@ -257,9 +247,5 @@ public class doctorViewController {
     void openAddDoctor(ActionEvent event) throws IOException {
         main.showAddDoctorWindow();
     }
-
-
-
-
 
 }

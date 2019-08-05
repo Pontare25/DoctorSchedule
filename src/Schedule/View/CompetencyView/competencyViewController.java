@@ -54,6 +54,7 @@ public class competencyViewController {
 
     }
 
+    //Adds a new competency to the competency table in the database, the competency name is set to be unique to hinder duplicates
     @FXML
     void addCompetency(ActionEvent event) {
         if(!titleField.getText().isBlank()){
@@ -90,10 +91,12 @@ public class competencyViewController {
 
     @FXML
     void editDescription(ActionEvent event) {
+        //Sets the button to be toggled and makes the description box editable
         if (!competencyTableView.getSelectionModel().isEmpty() && toggleBtnEditDesc.isSelected()){
             descriptionTextArea.setEditable(true);
             toggleBtnEditDesc.setText("Commit changes");
         }
+        //Updates the description in the database and sets the text to be uneditable
         if(!competencyTableView.getSelectionModel().isEmpty() && !toggleBtnEditDesc.isSelected()){
             descriptionTextArea.setEditable(false);
 
@@ -113,7 +116,7 @@ public class competencyViewController {
                 System.out.println(e.getMessage());
             }
             toggleBtnEditDesc.setText("Edit Description");
-            FocusModel focusModel = competencyTableView.getFocusModel();
+            //FocusModel focusModel = competencyTableView.getFocusModel();
 
             int index = competencyTableView.getSelectionModel().getFocusedIndex();
             loadData();

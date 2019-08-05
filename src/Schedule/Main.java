@@ -19,6 +19,11 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
+
+//The main is primarily used as a way to load different views in a more cohesive way. Instead of haveing to cloase and open different windows
+//The windows are instead loaded into the center of the borderpane of the mainlayout
+//Smaller views such as add stages are also accessed via the main for convenience
+
         private static Stage primaryStage;
         private static BorderPane mainLayout;
         private static DoctorDBHandler dbHandler;

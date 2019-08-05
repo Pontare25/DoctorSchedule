@@ -39,6 +39,7 @@ public class addDoctorController {
     @FXML
     private ComboBox<Section> MainSectionCombobox;
 
+    //Adds a doctor to the DB
     @FXML
     void addDoctor(ActionEvent event) {
 
@@ -63,9 +64,7 @@ public class addDoctorController {
                 System.out.println(e.getMessage());
             }
         }
-
-
-        clearAddFields();
+       // clearAddFields();
     }
 
 
@@ -89,7 +88,7 @@ public class addDoctorController {
         titles.clear();
         sections.clear();
         ////////Title Combobox
-
+        //The below is the alternative way of loading a custom class into a combobox. I later understood the same/better result could be achieved by overriding the toString function
        /* titleCombobox.setCellFactory(new Callback<ListView<Title>, ListCell<Title>>() {
             @Override
             public ListCell<Title> call(ListView<Title> titleListView) {
@@ -123,9 +122,6 @@ public class addDoctorController {
             System.out.println(e.getMessage());
         }
         titleCombobox.setItems(titles);
-
-
-
     }
 
     private void initSectionComboBox() {
@@ -135,7 +131,6 @@ public class addDoctorController {
              ResultSet rs    = stmt.executeQuery(SQLquery)){
             while(rs.next()){
                 //Section(int section_id, String section_name, int head_of_section, int main_section, int department_id)
-                //String name = rs.getString("fname") + ", " + rs.getString("lname");
                 sections.add(new Section(rs.getInt("Section_id"), rs.getString("section_name"), rs.getInt("head_of_section"), rs.getInt("main_section"), rs.getInt("department_id")));
             }
         }catch (SQLException e){

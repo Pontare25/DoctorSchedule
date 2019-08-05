@@ -27,9 +27,9 @@ import javafx.scene.input.MouseEvent;
 public class departmentViewController {
 
     private Main main;
-    private DoctorDBHandler dbHandler = new DoctorDBHandler();
-    private ObservableList<Department> departments = FXCollections.observableArrayList();
-    private ObservableList<Section> sections = FXCollections.observableArrayList();
+    private DoctorDBHandler dbHandler = new DoctorDBHandler(); //A Database handler
+    private ObservableList<Department> departments = FXCollections.observableArrayList(); //A lost of the available departments from the DB
+    private ObservableList<Section> sections = FXCollections.observableArrayList(); //A list that is updated based on the sections related to the department
 
 
     @FXML
@@ -70,7 +70,6 @@ public class departmentViewController {
 
     @FXML
     void initialize() {
-
         initColumns();
         loadData();
     }
