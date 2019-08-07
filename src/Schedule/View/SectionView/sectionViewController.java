@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import Schedule.Database.DoctorDBHandler;
-import Schedule.DepartmentsAndSections.Department;
-import Schedule.DepartmentsAndSections.Section;
+import Schedule.Models.Department;
+import Schedule.Models.Section;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

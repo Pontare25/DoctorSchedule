@@ -125,7 +125,6 @@ public class Main extends Application{
         editDoctorCompetencyController.setPersonId(person_id);
         editDoctorCompetencyController.loadData();
         addDialogeStage.showAndWait();
-
     }
 
     public static void showDepartments() throws IOException{

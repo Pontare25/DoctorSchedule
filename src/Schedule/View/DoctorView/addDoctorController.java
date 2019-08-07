@@ -5,8 +5,8 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import Schedule.Database.DoctorDBHandler;
-import Schedule.DepartmentsAndSections.Section;
-import Schedule.Doctor.Title;
+import Schedule.Models.Section;
+import Schedule.Models.Title;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

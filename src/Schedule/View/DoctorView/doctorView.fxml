@@ -55,13 +55,13 @@
                                              </columnResizePolicy>
                                           </TableView>
                                           <Separator prefWidth="200.0" />
-                                          <TextArea fx:id="comp_desc_textarea" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Select a competency above to display a description" />
                                           <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="5.0">
                                              <children>
                                                 <Button mnemonicParsing="false" onAction="#deleteSelected_Comp" prefWidth="120.0" text="Delete" />
                                                 <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openAddComp" prefWidth="120.0" text="Edit" />
                                              </children>
                                           </HBox>
+                                          <TextArea fx:id="comp_desc_textarea" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Select a competency above to display a description" />
                                        </children>
                                     </VBox>
                                  </children>

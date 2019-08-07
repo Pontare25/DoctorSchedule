@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import Schedule.Database.DoctorDBHandler;
-import Schedule.competency.Competency;
+import Schedule.Models.Competency;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

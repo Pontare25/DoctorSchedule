@@ -7,15 +7,14 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import Schedule.Database.DoctorDBHandler;
-import Schedule.Doctor.Doctor;
+import Schedule.Models.Doctor;
 import Schedule.Main;
-import Schedule.competency.Competency;
+import Schedule.Models.Competency;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -109,7 +108,9 @@ public class doctorViewController {
             System.out.println(e.getMessage());
         }
 
-        DoctorTableView.setItems(doctors);
+
+        DoctorTableView.setItems(doctors);//sets the tableview data
+        DoctorTableView.getSelectionModel().selectFirst();//makes the first item in the tableview focused
         DoctorTableView.requestFocus();
 
     }

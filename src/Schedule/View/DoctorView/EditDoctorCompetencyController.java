@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import Schedule.Database.DoctorDBHandler;
-import Schedule.competency.Competency;
+import Schedule.Models.Competency;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -90,6 +90,17 @@ public class EditDoctorCompetencyController {
         Comps_availableTableView.setItems(availableCompetencies);
         to_be_added.setItems(toBeAddedCompetencies);
         to_be_deleted_table.setItems(toBeDeletedCompetencies);
+
+        //Sets the focus to the best alternative of tables
+        if(!availableCompetencies.isEmpty())
+        {
+            Comps_availableTableView.getSelectionModel().selectFirst();
+            Comps_availableTableView.requestFocus();
+        }
+        else if(!registeredCompetencies.isEmpty()){
+            registered_table.getSelectionModel().selectFirst();
+            registered_table.requestFocus();
+        }
     }
 
     private void loadName() {
@@ -243,8 +254,8 @@ public class EditDoctorCompetencyController {
 
     @FXML
     void cancel_ALL_changes(ActionEvent event) {
-
-
+        removeAllToBeAdded(event);
+        cancelAllToBeDeleted(event);
     }
 
     @FXML

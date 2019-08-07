@@ -1,4 +1,4 @@
-package Schedule.Doctor;
+package Schedule.Models;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -8,7 +8,7 @@ public class Doctor {
 
    private SimpleIntegerProperty id;
    private SimpleStringProperty fname;
-    private SimpleStringProperty lname;
+   private SimpleStringProperty lname;
    private SimpleStringProperty title;
    private SimpleStringProperty mainSection;
    private SimpleBooleanProperty available;

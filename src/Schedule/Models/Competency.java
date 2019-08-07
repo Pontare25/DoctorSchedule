@@ -1,4 +1,4 @@
-package Schedule.competency;
+package Schedule.Models;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,8 +9,6 @@ public class Competency {
      private SimpleIntegerProperty compID;
      private SimpleStringProperty compTitle;
      private SimpleStringProperty compDesc;
-
-    //Lista med subkompetenser
 
 
      public Competency(int compID, String compTitle, String compDesc) {
