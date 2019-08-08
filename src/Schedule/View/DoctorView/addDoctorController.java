@@ -39,6 +39,17 @@ public class addDoctorController {
     @FXML
     private ComboBox<Section> MainSectionCombobox;
 
+    @FXML
+    void initialize() {
+        try {
+            initTitleCombobox();
+            initSectionComboBox();
+            fnameField.requestFocus();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     //Adds a doctor to the DB
     @FXML
     void addDoctor(ActionEvent event) {
@@ -73,15 +84,7 @@ public class addDoctorController {
 
     }
 
-    @FXML
-    void initialize() {
-        try {
-            initTitleCombobox();
-            initSectionComboBox();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+
 
 
     private void initTitleCombobox() {

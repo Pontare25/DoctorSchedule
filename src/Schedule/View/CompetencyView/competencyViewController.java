@@ -161,7 +161,8 @@ public class competencyViewController {
             System.out.println(e.getMessage());
         }
         competencyTableView.refresh();
-
+        competencyTableView.getSelectionModel().selectFirst();
+        competencyTableView.requestFocus();
     }
 
     @FXML

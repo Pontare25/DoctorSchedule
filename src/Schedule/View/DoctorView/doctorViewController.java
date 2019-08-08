@@ -70,7 +70,6 @@ public class doctorViewController {
     void initialize() {
         initTables();
         loadData();
-
     }
 
     private void initTables() {
@@ -107,12 +106,14 @@ public class doctorViewController {
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
-
-
         DoctorTableView.setItems(doctors);//sets the tableview data
         DoctorTableView.getSelectionModel().selectFirst();//makes the first item in the tableview focused
         DoctorTableView.requestFocus();
-
+        try {
+            loadCompData();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     //Loads the competencies tied to the specific selected doctor
@@ -177,7 +178,6 @@ public class doctorViewController {
     void loadEmployeeData(ActionEvent event){
         loadData();
     }
-
     @FXML
     void deleteDoctor(ActionEvent event) {
         try {
@@ -202,7 +202,6 @@ public class doctorViewController {
             e.printStackTrace();
         }
     }
-
     @FXML
     void deleteSelected_Comp(ActionEvent event) {
         try {
@@ -237,12 +236,10 @@ public class doctorViewController {
             try {
                 //Passing the id of the doctor to the next view the information of where to add the competencies and what competencies are already added
                 main.showAddCompetencyWindow(DoctorTableView.getSelectionModel().getSelectedItem().getId());
-
             }catch (Exception e){
                 e.printStackTrace();
             }
         }else System.out.println("Select a doctor to add competencies to");
-
     }
     @FXML
     void openAddDoctor(ActionEvent event) throws IOException {
