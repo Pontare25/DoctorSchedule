@@ -60,15 +60,22 @@ public class sectionViewController {
 
     TreeItem<CompetencyReq> comp1 = new TreeItem<>(new CompetencyReq(1, 2, "Comp1", true));
     TreeItem<CompetencyReq> comp2 = new TreeItem<>(new CompetencyReq(1, 4, "comp2", false));
+    TreeItem<CompetencyReq> comp3 = new TreeItem<>(new CompetencyReq(2, 5, "comp3", false));
+    TreeItem<CompetencyReq> comp4 = new TreeItem<>(new CompetencyReq(2, 6, "comp4", true));
 
 
-    TreeItem<CompetencyReq> root = new TreeItem<>(new CompetencyReq(1, 2, "Section 1", true));
+    TreeItem<CompetencyReq> root = new TreeItem<>(new CompetencyReq(1, 2, "Sections", true));
+
+    TreeItem<CompetencyReq> section1 = new TreeItem<>(new CompetencyReq(1, 2, "Section 1", true));
+
+    TreeItem<CompetencyReq> section2 = new TreeItem<>(new CompetencyReq(2, 2, "Section 2", false));
 
     @FXML
     void initialize() {
         initColumns();
         loadDepartments();
         loadCompetencyReqTreeTable();
+
     }
 
     private void initColumns() {
@@ -105,6 +112,8 @@ public class sectionViewController {
             System.out.println(e.getMessage());
         }
         departmentCombobox.setItems(departments);
+        departmentCombobox.getSelectionModel().selectFirst();
+        loadSections(new ActionEvent());
     }
 
 
@@ -142,9 +151,11 @@ public class sectionViewController {
 
     //Should load the different subsections in a treetable with the competencies required and if they are assigned.
     private void loadCompetencyReqTreeTable() {
-        root.getChildren().setAll(comp1, comp2);
+        root.getChildren().setAll(section1, section2);
+        section1.getChildren().setAll(comp1, comp4);
+        section2.getChildren().setAll(comp3, comp4);
         treeTableCompetency.setRoot(root);
-
+        treeTableCompetency.setShowRoot(false); //Removes the ugly top section necessary
     }
 
 
