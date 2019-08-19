@@ -51,7 +51,7 @@ public class DateTableViewTestController {
     void add(ActionEvent event) {
         try
         {
-            if(!datepicker.getEditor().getText().isBlank() ||!textfield.getText().isBlank()){
+            if(!datepicker.getEditor().getText().isBlank() && !textfield.getText().isBlank()){
 
                     LocalDateTime localDateTime = LocalDateTime.of(datepicker.getValue(),LocalTime.of(Integer.parseInt(hourSpinner.getEditor().getText()), Integer.parseInt(minuteSpinner.getEditor().getText())));
                     personDates.add(new PersonDate(textfield.getText(), localDateTime));
@@ -60,7 +60,7 @@ public class DateTableViewTestController {
                     System.out.println(textfield.getText() + ", "+ localDateTime.format(dtFormatter.getDateTimeFormatter()));
                     tableview.refresh();
 
-                } else System.out.println("Select a date and time!");
+                } else System.out.println("Enter name and, select a date and time!");
 
         }catch (Exception e){
             e.printStackTrace();
