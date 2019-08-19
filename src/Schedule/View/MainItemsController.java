@@ -38,6 +38,11 @@ public class MainItemsController {
     }
 
     @FXML
+    void showSchedule(ActionEvent event) throws IOException{
+        main.showSchedule();
+    }
+
+    @FXML
     void initialize() {
 
     }

@@ -163,6 +163,7 @@ public class competencyViewController {
         competencyTableView.refresh();
         competencyTableView.getSelectionModel().selectFirst();
         competencyTableView.requestFocus();
+        loadDescription();
     }
 
     @FXML

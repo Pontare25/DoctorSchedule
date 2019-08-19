@@ -140,6 +140,14 @@ public class Main extends Application{
         BorderPane sectionsView = loader.load();
         mainLayout.setCenter(sectionsView);
     }
+    public static void showSchedule() throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        //loader.setLocation(Main.class.getResource("View/ScheduleView/LineDiagramTest.fxml"));
+        loader.setLocation(Main.class.getResource("View/ScheduleView/DateTableViewTest.fxml"));
+        BorderPane sectionsView = loader.load();
+        mainLayout.setCenter(sectionsView);
+    }
+
 
 
 }

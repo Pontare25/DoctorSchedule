@@ -244,6 +244,8 @@ public class doctorViewController {
     @FXML
     void openAddDoctor(ActionEvent event) throws IOException {
         main.showAddDoctorWindow();
+        loadData();
+        DoctorTableView.getSelectionModel().selectLast();
     }
 
 }

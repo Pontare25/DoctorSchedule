@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 public class addDoctorController {
 
@@ -75,7 +76,6 @@ public class addDoctorController {
                 System.out.println(e.getMessage());
             }
         }
-       // clearAddFields();
     }
 
 
@@ -83,8 +83,6 @@ public class addDoctorController {
     void cancel(ActionEvent event) {
 
     }
-
-
 
 
     private void initTitleCombobox() {

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Schedule.View.ScheduleView.ScheduleLayoutController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="2.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="&lt;" />
+            <ComboBox minWidth="20.0" promptText="W: X, 2019 " />
+            <Button mnemonicParsing="false" text="Now" />
+            <Button layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="&gt;" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <Label text="Schedule Type:" />
+            <ComboBox minWidth="20.0" promptText="Week vs. Activity" />
+            <Label text="Show:" />
+            <ComboBox minWidth="20.0" promptText="Days" />
+            <Label text="Weeks:" />
+            <ComboBox minWidth="20.0" promptText="2" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton mnemonicParsing="false" text="Export">
+              <items>
+                <MenuItem mnemonicParsing="false" text="PDF" />
+                <MenuItem mnemonicParsing="false" text="Excel" />
+              </items>
+            </MenuButton>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <TreeTableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                    <columns>
+                      <TreeTableColumn prefWidth="75.0" text="C1" />
+                      <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TreeTableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

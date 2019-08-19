@@ -110,6 +110,7 @@ public class departmentViewController {
         TableView_department.refresh();
         TableView_department.getSelectionModel().selectFirst();
         TableView_department.requestFocus();
+        loadHeadAndSections();
     }
 
     @FXML
